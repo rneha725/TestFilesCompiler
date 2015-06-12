@@ -1,10 +1,9 @@
 %{
 #include<stdio.h>
-int line=1, charCount=0, digCount=0, specCount=0, up=0;
+int line=1, charCount=0, digCount=0, specCount=0;
 %}
 
 %%
-printf up++;
 [a-zA-Z] charCount++;
 [0-9] digCount++;
 . specCount++;
@@ -15,8 +14,7 @@ int main()
 { 
 	yyin= fopen("countFile.l","r");
 	yylex();
-	printf("Upper case letters: %d\n", up);
-	printf("Total Characters: %d\n", charCount+digCount+specCount+line+up*6);
+	printf("Total Characters: %d\n", charCount+digCount+specCount+line);
 	printf("Chacters: %d\n", charCount);
 	printf("Digits: %d\n", digCount);
 	printf("Other Characters: %d\n", specCount);
